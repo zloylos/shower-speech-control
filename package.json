@@ -1,0 +1,24 @@
+{
+  "name": "shower-speech-control",
+  "description": "",
+  "version": "0.0.1",
+  "author": {
+    "name": "Denis Hananein",
+    "url": "http://zloy.me/"
+  },
+  "homepage": "https://github.com/zloylos/shower-speach-control",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zloylos/shower-speach-control.git"
+  },
+  "bugs": {
+    "url": "http://github.com/zloylos/shower-speach-control/issues"
+  },
+  "licenses": "MIT",
+  "keywords": [
+    "shower",
+    "presentation",
+    "plugin"
+  ],
+  "devDependencies": {}
+}
