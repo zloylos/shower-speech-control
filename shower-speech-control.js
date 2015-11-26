@@ -17,9 +17,13 @@ shower.modules.define('shower-speech-control', [
 
     /**
      * @class
+     * Shower speech control plugin.
+     *
      * @param {Shower} shower
      * @param {Object} [options]
      * @param {String} [options.lang = 'ru-RU']
+     * @param {Boolean} [options.continuous = true]
+     * @param {Boolean} [options.interimResults = true]
      * @param {Boolean} [options.autoStart = false]
      * @param {Object} [options.callbacks]
      * @param {Function} [options.callbacks.onStart]
@@ -32,6 +36,7 @@ shower.modules.define('shower-speech-control', [
         options = options || {};
         this._shower = shower;
         this._callbacks = extend({}, DefaultCallbacks, options.callbacks || {});
+
         this.options = new Options(extend({}, DefaultOptions, options));
 
         this._isSupports = 'webkitSpeechRecognition' in window;
@@ -55,14 +60,30 @@ shower.modules.define('shower-speech-control', [
             this._recognition = null;
         },
 
+        /**
+         * Start listen and recognize.
+         *
+         * @example
+         * shower.modules.require(['shower'], function (sh) {
+         *      var showerInstance = sh.getInited()[0];
+         *      var plugin = sh.plugins.get('shower-speech-control');
+         *      plugin.start();
+         * });
+         */
         start: function () {
             this._recognition.start();
         },
 
+        /**
+         * Stop listen and recognize.
+         */
         stop: function () {
             this._recognition.stop();
         },
 
+        /**
+         * @returns {Boolean}
+         */
         isSupports: function () {
             return this._isSupports;
         },
