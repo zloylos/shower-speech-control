@@ -47,9 +47,7 @@ shower.modules.define('shower-speech-control', [
             this._table = this._getSlidesTable();
             this._setup();
 
-            if (options.autoStart) {
-                this.start();
-            }
+            this.start();
         }
     }
 
@@ -89,7 +87,7 @@ shower.modules.define('shower-speech-control', [
         },
 
         _getSlidesTable: function () {
-            var slides = this._shower.getSlidesArray();
+            var slides = this._shower.getSlides();
             var table = [];
             slides.forEach(function (slide) {
                 var speechBookmark = slide.layout.getData('speechBookmark');
